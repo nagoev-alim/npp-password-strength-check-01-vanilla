@@ -1,0 +1,21 @@
+{
+  "name": "app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^3.1.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.2.1",
+    "check-password-strength": "^2.0.7",
+    "feather-icons": "^4.29.0",
+    "sass": "^1.57.1",
+    "star-rating.js": "^4.3.0"
+  }
+}

@@ -1,0 +1,156 @@
+@import "assets/scss/config/fonts";
+@import "assets/scss/config/reset";
+@import "assets/scss/config/vars";
+@import "assets/scss/config/utility";
+@import "assets/scss/modules/typography";
+@import "assets/scss/modules/fields";
+@import "assets/scss/modules/buttons";
+@import "assets/scss/modules/toast";
+@import "assets/scss/config/global";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.app-author {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-container {
+  --gap: 15px;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: var(--bcs-grey-4);
+  padding: 10px;
+  transition: all 0.3s var(--ease-elastic-1);
+}
+
+.password-strength {
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05), 0 25px 35px rgba(0, 0, 0, 0.03);
+  border-radius: 8px;
+  margin: 0 auto;
+  max-width: 500px;
+  width: 100%;
+  display: grid;
+  gap: var(--gap);
+
+  .title {
+    text-align: center;
+  }
+
+  input {
+    width: 100%;
+    padding-right: 35px;
+  }
+
+  &__field {
+    position: relative;
+  }
+
+  &__ico {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    padding: 4px;
+    border: 0;
+    background-color: transparent;
+  }
+
+  svg {
+    pointer-events: none;
+  }
+
+  &__info {
+    text-align: center;
+    display: grid;
+    gap: 10px;
+
+    span {
+      font-weight: 700;
+    }
+
+    &.too-weak {
+      --color: #fb3c3c;
+
+      .password-strength__level:nth-child(1)::after {
+        background-color: var(--color);
+      }
+
+      span {
+        color: var(--color);
+      }
+    }
+
+    &.weak {
+      --color: #feb64a;
+
+      .password-strength__level:nth-child(1)::after,
+      .password-strength__level:nth-child(2)::after {
+        background-color: var(--color);
+      }
+
+      span {
+        color: var(--color);
+      }
+    }
+
+    &.medium {
+      --color: #1B6AA5;
+
+      .password-strength__level:nth-child(1)::after,
+      .password-strength__level:nth-child(2)::after,
+      .password-strength__level:nth-child(3)::after {
+        background-color: var(--color);
+      }
+
+      span {
+        color: var(--color);
+      }
+    }
+
+    &.strong {
+      --color: #9abf1a;
+
+      .password-strength__level::after {
+        background-color: var(--color);
+      }
+
+      span {
+        color: var(--color);
+      }
+    }
+  }
+
+  &__levels {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+  }
+
+  &__level {
+    border: 2px solid var(--bcp-grey);
+    border-radius: 2px;
+    height: 8px;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: '';
+      transition: background-color 0.35s ease;
+      width: 100%;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 100%;
+      background-color: transparent;
+    }
+  }
+}
